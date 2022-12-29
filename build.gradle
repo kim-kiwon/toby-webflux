@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id "io.spring.dependency-management" version "1.0.7.RELEASE"
 }
 
 group 'org.example'
@@ -9,7 +10,19 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Bismuth-RELEASE"
+    }
+}
 dependencies {
+    implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.0'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    implementation 'io.projectreactor:reactor-core'
+    implementation platform('io.projectreactor:reactor-bom:Bismuth-RELEASE')
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }

@@ -1,3 +1,5 @@
+package ch1;
+
 import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.ExecutorService;

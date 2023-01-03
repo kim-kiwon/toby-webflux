@@ -10,10 +10,19 @@ repositories {
     mavenCentral()
 }
 
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Bismuth-RELEASE"
+    }
+}
 dependencies {
+    implementation group: 'org.reactivestreams', name: 'reactive-streams', version: '1.0.0'
     implementation 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: '2.7.7'
+    implementation 'io.projectreactor:reactor-core'
+    implementation platform('io.projectreactor:reactor-bom:Bismuth-RELEASE')
+    implementation 'org.springframework.boot:spring-boot-starter-websocket:2.7.7'
+    implementation 'io.netty:netty-all:4.1.17.Final'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'

@@ -1,6 +1,6 @@
 package ch6;
 
-import io.netty.channel.nio.NioEventLoopGroup;
+//import io.netty.channel.nio.NioEventLoopGroup;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class CompletionApplication {
 
     @RestController
     public static class MyController {
-        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory(new NioEventLoopGroup(1)));
+        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory());
 
         @Autowired
         MyService myService;

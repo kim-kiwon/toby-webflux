@@ -1,6 +1,6 @@
 package ch7;
 
-import io.netty.channel.nio.NioEventLoopGroup;
+//import io.netty.channel.nio.NioEventLoopGroup;
 import java.util.concurrent.CompletableFuture;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class CompletableFutureApplication {
 
     @RestController
     public static class MyController {
-        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory(new NioEventLoopGroup(1)));
+        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory());
 
         @Autowired
         MyService myService;

@@ -1,6 +1,6 @@
 package ch5;
 
-import io.netty.channel.nio.NioEventLoopGroup;
+//import io.netty.channel.nio.NioEventLoopGroup;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -26,7 +26,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 public class CallbackApplication {
     @RestController
     public static class MyController {
-        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory(new NioEventLoopGroup(1)));
+        AsyncRestTemplate rt = new AsyncRestTemplate(new Netty4ClientHttpRequestFactory());
 
         static final String URL1 = "http://localhost:8081/service?req={req}";
         static final String URL2 = "http://localhost:8081/service2?req={req}";
